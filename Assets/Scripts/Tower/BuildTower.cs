@@ -8,23 +8,35 @@ public class BuildTower : MonoBehaviour
     public Tilemap towerBase;
     public Tile getTile;
     public Tile Tower;
-    public GameObject tower;
-    public int count;
+    public GameObject[] tower;
+    public int[] count;
+    public int selectNumber, buildNumber;
 
     Vector3Int position;
     Vector3Int[] positions;
 
-    int x, y;
+    GameSetting gameSetting;
+    TowerSetting towerSetting;
+
+    int x, y, allCount;
+    int[] expense;
     bool exist;
-    // Start is called before the first frame update
     void Start()
     {
-        count = 0;
+        allCount = 0;
+        buildNumber = 0;
+        selectNumber = 0;
+        count = new int[5];
         exist = false;
         positions = new Vector3Int[99];
-    }
+        expense = new int[99];
+        expense[0] = 20;
+        expense[1] = 25;
+        expense[2] = 15;
+        expense[3] = 40;
 
-    // Update is called once per frame
+        gameSetting = GameObject.Find("SettingManager").GetComponent<GameSetting>();
+    }
     void Update()
     {
         int x = transform.position.x > 0 ? (int)transform.position.x : (int)transform.position.x - 1;
@@ -34,7 +46,7 @@ public class BuildTower : MonoBehaviour
         if (towerBase.GetTile(position) == getTile)
         {
             exist = false;
-            for(int i=0; i<count; i++)
+            for(int i=0; i<allCount; i++)
             {
                 if (positions[i] == position)
                 {
@@ -48,20 +60,23 @@ public class BuildTower : MonoBehaviour
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    GameObject Tower = Instantiate(tower, new Vector3(position.x + 0.5f, position.y + 0.5f, 0), Quaternion.identity);
-                    positions[count] = position;
-                    count++;
-                    Tower.name = "BasicTower" + count.ToString();
+                    if (expense[buildNumber] <= gameSetting.gold)
+                    {
+                        GameObject Tower = Instantiate(tower[buildNumber], new Vector3(position.x + 0.5f, position.y + 0.5f, 0), Quaternion.identity);
+                        towerSetting = Tower.GetComponent<TowerSetting>();
+                        positions[count[buildNumber]] = position;
+                        count[buildNumber]++;
+                        allCount++;
+                        gameSetting.gold -= expense[buildNumber];
+                        towerSetting.count = count[buildNumber];
+                        towerSetting.selectNumber = buildNumber;
+                    }
                 }
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    void nameTower(GameObject tower, string str)
     {
-        if (collision.CompareTag("Base"))
-        {
-            Debug.Log("This is a Base");
-        }
+        tower.name = str;
     }
 }

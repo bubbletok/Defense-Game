@@ -4,29 +4,28 @@ using UnityEngine;
 
 public class EnemySetting : MonoBehaviour
 { 
-    public float Hp, Defense, Speed, attackedDamage;
+    public float Hp, Defense, Speed, earnedGold;
+    public GameObject coinEffect;
+
     AttackEnemy AttackEnemy;
-    // Start is called before the first frame update
+    GameSetting gameSetting;
+
     void Start()
     {
+        gameSetting = GameObject.Find("SettingManager").GetComponent<GameSetting>();
+        //Instanciate(hpBar, new Vector3(trasform.position.x,transform.position.y + 2,0),Quaternion.identify)
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Hp < 0)
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
+            Instantiate(coinEffect, transform.position, Quaternion.identity);
+            gameSetting.gold += earnedGold;
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Attack"))
-        {           
-            Destroy(collision.gameObject);
-            Hp -= attackedDamage;
-        }
+
     }
 }

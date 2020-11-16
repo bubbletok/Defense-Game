@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - AttackedEnemy
   - Attack
+  - Tower
+  - AttackedEnemy(idenfied)
   layers:
   - Default
   - TransparentFX
@@ -64,4 +66,7 @@ TagManager:
     locked: 0
   - name: Attack
     uniqueID: 691428427
+    locked: 0
+  - name: Effect
+    uniqueID: 905495431
     locked: 0

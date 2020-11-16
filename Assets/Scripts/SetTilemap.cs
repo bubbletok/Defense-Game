@@ -2,30 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
-static class Constatns
-{
-    public const int count = 4;
-}
 public class SetTilemap : MonoBehaviour
 {
     
     public Tilemap Base;
-    public Tilemap Aisle;
     public Tile baseTile;
-    public Tile aisleTile;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-        int count = Constatns.count;
         //Set a base tile according to count;
-        for(int i=-count; i<=count; i++)
+        for(int i=-15; i<=8; i++)
         {
-            for(int j=-count; j<=count; j++)
+            for(int j=-5; j<=8; j++)
             {
-                Base.SetTile(new Vector3Int(j,i,0), baseTile);
+                Base.SetTile(new Vector3Int(i,j,0), baseTile);
             }
         }
     }

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UserSetting : MonoBehaviour
 {
+    public bool[] Tower;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        
+        Tower = new bool[10];
+        Tower[0] = true;
     }
 }
