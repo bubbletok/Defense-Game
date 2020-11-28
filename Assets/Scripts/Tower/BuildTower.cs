@@ -11,12 +11,13 @@ public class BuildTower : MonoBehaviour
     public GameObject[] tower;
     public int[] count;
     public int selectNumber, buildNumber;
-
+    public bool towerSelected;
     Vector3Int position;
     Vector3Int[] positions;
 
     GameSetting gameSetting;
     TowerSetting towerSetting;
+    TowerInformation towerInformation;
 
     int x, y, allCount;
     int[] expense;
@@ -26,16 +27,19 @@ public class BuildTower : MonoBehaviour
         allCount = 0;
         buildNumber = 0;
         selectNumber = 0;
-        count = new int[5];
+        count = new int[99];
         exist = false;
         positions = new Vector3Int[99];
-        expense = new int[99];
+        expense = new int[5];
         expense[0] = 20;
         expense[1] = 25;
         expense[2] = 15;
         expense[3] = 40;
 
         gameSetting = GameObject.Find("SettingManager").GetComponent<GameSetting>();
+        towerInformation = GameObject.Find("Mouse").GetComponent<TowerInformation>();
+
+        towerSelected = false;
     }
     void Update()
     {
@@ -58,11 +62,12 @@ public class BuildTower : MonoBehaviour
             }
             if (!exist)
             {
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && towerSelected)
                 {
                     if (expense[buildNumber] <= gameSetting.gold)
                     {
                         GameObject Tower = Instantiate(tower[buildNumber], new Vector3(position.x + 0.5f, position.y + 0.5f, 0), Quaternion.identity);
+                        towerInformation.usedTower[allCount] = Tower;
                         towerSetting = Tower.GetComponent<TowerSetting>();
                         positions[count[buildNumber]] = position;
                         count[buildNumber]++;
@@ -70,6 +75,7 @@ public class BuildTower : MonoBehaviour
                         gameSetting.gold -= expense[buildNumber];
                         towerSetting.count = count[buildNumber];
                         towerSetting.selectNumber = buildNumber;
+                        towerSelected = false;
                     }
                 }
             }

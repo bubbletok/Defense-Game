@@ -113,5 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 0
   selectNumber: 0
+  enemyId: 0
   damage: 0
   tower: {fileID: 5622806315342792613, guid: 4b338d5a0af42d24abfafaec3008e7f1, type: 3}
+  particle: {fileID: 5121135381181048265, guid: fb8ddd648d856e846b76591dc48e6297,
+    type: 3}

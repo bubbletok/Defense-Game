@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 public class MoveEnemyToDestination : MonoBehaviour
 {
     EnemySetting enemySetting;
+    GameSetting gameSetting;
     float speed;
 
     GameObject Dest, destination;
@@ -16,6 +17,7 @@ public class MoveEnemyToDestination : MonoBehaviour
     private void Start()
     {
         enemySetting = gameObject.GetComponent<EnemySetting>();
+        gameSetting = GameObject.Find("SettingManager").GetComponent<GameSetting>();
         destination = GameObject.Find("Destination");
         speed = enemySetting.Speed;
         destCount = 1;
@@ -30,7 +32,12 @@ public class MoveEnemyToDestination : MonoBehaviour
             Dest = GameObject.Find("Dest" + destCount.ToString());
         }
         if (transform.position == destination.transform.position)
+        {
             Destroy(gameObject);
+            Destroy(enemySetting.hpbar);
+            Destroy(enemySetting.hpbarBase);
+            gameSetting.life--;
+        }
     }
     // Update is called once per frame
     void FixedUpdate()

@@ -7,25 +7,26 @@ public class SpawnEnemy : MonoBehaviour
     public int round, spawnWaiting;
     public float spawnTimer;
     public GameObject[] Enemy;
+    public GameObject spawnInform;
 
+    GameObject tempInform;
     GameSetting gameSetting;
     int restWaiting;
     float restTimer;
-    bool spawning, rest;
-    // Start is called before the first frame update
+    bool spawning, rest, inform;
+
     void Start()
     {
         restTimer = 0;
         restWaiting = 10;
         spawnTimer = 0;
-        spawnWaiting = 20;
         round = 0;
 
         spawning = false;
         rest = false;
+        inform = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (rest)
@@ -43,9 +44,25 @@ public class SpawnEnemy : MonoBehaviour
             round++;
         }
         if (!spawning && !rest)
+        {
             spawnTimer += Time.deltaTime;
+            if (!inform)
+            {
+                switch (round)
+                {
+                    case 0:
+                        tempInform = Instantiate(spawnInform, transform.position, Quaternion.identity);
+                        inform = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         else if (spawning)
         {
+            Destroy(tempInform);
+            inform = false;
             switch (round)
             {
                 case 1:
@@ -87,11 +104,4 @@ public class SpawnEnemy : MonoBehaviour
         else
             StartCoroutine(Spawn(number,count));
     }
-
-    IEnumerable Waitfor()
-    {
-        yield return new WaitForSeconds(1f);
-        // boolean valuable = false;
-    }
-
 }

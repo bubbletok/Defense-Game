@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2583599864276316961}
   - component: {fileID: 4996782417814949532}
   m_Layer: 0
-  m_Name: BasocAttack
+  m_Name: BasicAttack
   m_TagString: Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,5 +112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   count: 0
+  selectNumber: 0
+  enemyId: 0
   damage: 0
   tower: {fileID: 2513106198078764606, guid: b3b6a5496bcfb15408fbb9fac86a22ea, type: 3}
+  particle: {fileID: 5121135381181048265, guid: fb8ddd648d856e846b76591dc48e6297,
+    type: 3}

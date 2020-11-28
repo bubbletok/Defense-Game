@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5609806471194304521}
-  - component: {fileID: 5609806471194304566}
-  - component: {fileID: 8554882554341283117}
   - component: {fileID: 1196679359623731022}
+  - component: {fileID: 8554882554341283117}
+  - component: {fileID: 5609806471194304566}
   - component: {fileID: 6023429455358311181}
   - component: {fileID: 1431202309151083206}
   m_Layer: 0
@@ -35,6 +35,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1196679359623731022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5609806471194304567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e2382af3f6d21b45a94a55f979d4784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: 0
+  Hp: 35
+  Defense: 2
+  Speed: 1.5
+  earnedGold: 5
+  coinEffect: {fileID: 5315504688445683180, guid: 05fbeec894ebfea4a857e11b19e4b0c5,
+    type: 3}
+  baseBar: {fileID: 1380707710289516916, guid: 1e456ce4398aca64f8352ea1fa17fc2f, type: 3}
+  hpBar: {fileID: 235615355117393443, guid: e4cbf05247468e446b89d513458380b6, type: 3}
+  hpbar: {fileID: 0}
+  hpbarBase: {fileID: 0}
+  particle: {fileID: 5121135381181048265, guid: fb8ddd648d856e846b76591dc48e6297,
+    type: 3}
+--- !u!114 &8554882554341283117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5609806471194304567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a355cd90d71a65439e70b995bd77db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &5609806471194304566
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,36 +122,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8554882554341283117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5609806471194304567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a355cd90d71a65439e70b995bd77db9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1196679359623731022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5609806471194304567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e2382af3f6d21b45a94a55f979d4784, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Hp: 50
-  Defense: 5
-  Speed: 1
-  earnedGold: 5
-  coinEffect: {fileID: 5315504688445683180, guid: 05fbeec894ebfea4a857e11b19e4b0c5,
-    type: 3}
 --- !u!58 &6023429455358311181
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class MoveToEnemy : MonoBehaviour
     public int count, selectNumber, enemyId;
     public float damage;
     public GameObject tower;
+    public ParticleSystem particle;
 
     AttackEnemy attackEnemy;
     TowerSetting towerSetting;

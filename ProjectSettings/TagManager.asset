@@ -11,7 +11,7 @@ TagManager:
   - AttackedEnemy
   - Attack
   - Tower
-  - AttackedEnemy(idenfied)
+  - AttackedEnemy(Primary)
   layers:
   - Default
   - TransparentFX
@@ -69,4 +69,13 @@ TagManager:
     locked: 0
   - name: Effect
     uniqueID: 905495431
+    locked: 0
+  - name: UI
+    uniqueID: 756530063
+    locked: 0
+  - name: HpBar_Base
+    uniqueID: 2371847321
+    locked: 0
+  - name: HpBar
+    uniqueID: 2274628201
     locked: 0

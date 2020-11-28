@@ -109,11 +109,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e2382af3f6d21b45a94a55f979d4784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hp: 50
-  Defense: 5
-  Speed: 1
+  _name: 0
+  Hp: 35
+  Defense: 2
+  Speed: 1.5
   earnedGold: 5
   coinEffect: {fileID: 5315504688445683180, guid: 05fbeec894ebfea4a857e11b19e4b0c5,
+    type: 3}
+  baseBar: {fileID: 1380707710289516916, guid: 1e456ce4398aca64f8352ea1fa17fc2f, type: 3}
+  hpBar: {fileID: 235615355117393443, guid: e4cbf05247468e446b89d513458380b6, type: 3}
+  hpbar: {fileID: 0}
+  hpbarBase: {fileID: 0}
+  particle: {fileID: 5121135381181048265, guid: fb8ddd648d856e846b76591dc48e6297,
     type: 3}
 --- !u!58 &2507073330044284198
 CircleCollider2D:

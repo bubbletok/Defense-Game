@@ -30,15 +30,12 @@ public class AttackEnemy : MonoBehaviour
         detecting = false;
     }
 
-    void Update()
-    {
-    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("AttackedEnemy"))
         {
-            id = collision.gameObject.GetInstanceID();
             detecting = true;
+            id = collision.gameObject.GetInstanceID();
             Enemy = collision.gameObject;
             if (!attacking)
             {
@@ -50,20 +47,17 @@ public class AttackEnemy : MonoBehaviour
                 StartCoroutine(waitforit());
             }
         }
-        else if (collision.CompareTag("Enemy"))
+        else if (collision.CompareTag("Enemy") && !detecting)
         {
-            if (!detecting)
-            {
-                collision.tag = "AttackedEnemy";
-            }
+            detecting = true;
+            collision.tag = "AttackedEnemy";
         }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (id == collision.gameObject.GetInstanceID())
-        {
+        if(id == collision.gameObject.GetInstanceID())
             detecting = false;
-        }
     }
 
     IEnumerator waitforit()

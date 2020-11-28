@@ -115,6 +115,7 @@ MonoBehaviour:
   attack: {fileID: 732705220411024009, guid: 9ab3cdb178a7afa40a19e3f3f1b72c5c, type: 3}
   Enemy: {fileID: 0}
   count: 0
+  id: 0
 --- !u!114 &6346896583431684183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22fc913af61273949b94c2b2a1559e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: 0
+  selectNumber: 0
+  upgradeGold: 0
   range: 3
   damage: 2
   attackSpeed: 0.25
-  buildExpense: 25
+  towerImage: {fileID: 21300000, guid: 5f32867e2ffaeab489d56dbea58321a5, type: 3}
+  towerRange: {fileID: 2799187027492589678, guid: 1af74c739a235f34d8c754f39c588098,
+    type: 3}
