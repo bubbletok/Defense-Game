@@ -7,9 +7,7 @@ public class SpawnEnemy : MonoBehaviour
     public int round, spawnWaiting;
     public float spawnTimer;
     public GameObject[] Enemy;
-    public GameObject spawnInform;
 
-    GameObject tempInform;
     GameSetting gameSetting;
     int restWaiting;
     float restTimer;
@@ -51,7 +49,6 @@ public class SpawnEnemy : MonoBehaviour
                 switch (round)
                 {
                     case 0:
-                        tempInform = Instantiate(spawnInform, transform.position, Quaternion.identity);
                         inform = true;
                         break;
                     default:
@@ -61,7 +58,6 @@ public class SpawnEnemy : MonoBehaviour
         }
         else if (spawning)
         {
-            Destroy(tempInform);
             inform = false;
             switch (round)
             {

@@ -130,10 +130,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 0
   selectNumber: 0
-  upgradeGold: 0
+  upgradeGold: 75
+  upgradeLevel: 0
   range: 3
   damage: 2
   attackSpeed: 0.25
+  open: 0
   towerImage: {fileID: 21300000, guid: 5f32867e2ffaeab489d56dbea58321a5, type: 3}
   towerRange: {fileID: 2799187027492589678, guid: 1af74c739a235f34d8c754f39c588098,
     type: 3}

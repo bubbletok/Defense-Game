@@ -66,14 +66,13 @@
     <Compile Include="Assets\Scripts\Enemy\EnemySetting.cs" />
     <Compile Include="Assets\Scripts\Enemy\MoveEnemyToDestination.cs" />
     <Compile Include="Assets\Scripts\Enemy\SpawnEnemy.cs" />
-    <Compile Include="Assets\Scripts\SetTilemap.cs" />
     <Compile Include="Assets\Scripts\Setting\BarSetting.cs" />
     <Compile Include="Assets\Scripts\Setting\CameraController.cs" />
     <Compile Include="Assets\Scripts\Setting\EffectDisappear.cs" />
     <Compile Include="Assets\Scripts\Setting\FindMousePosition.cs" />
     <Compile Include="Assets\Scripts\Setting\GameSetting.cs" />
     <Compile Include="Assets\Scripts\Setting\InventorySetting.cs" />
-    <Compile Include="Assets\Scripts\Setting\MoveUI.cs" />
+    <Compile Include="Assets\Scripts\Setting\SetTilemap.cs" />
     <Compile Include="Assets\Scripts\Setting\SettingUI.cs" />
     <Compile Include="Assets\Scripts\Setting\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Setting\UserSetting.cs" />
@@ -83,6 +82,7 @@
     <Compile Include="Assets\Scripts\Tower\SelectTower.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerInformation.cs" />
     <Compile Include="Assets\Scripts\Tower\TowerSetting.cs" />
+    <Compile Include="Assets\Scripts\Tower\TowerUpgrade.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -5,24 +5,31 @@ using UnityEngine.UI;
 
 public class GameSetting : MonoBehaviour
 {
-    public int maximumRound, life;
+    public int maximumRound, life, getTower, stage;
     public float gold;
     public Text roundText;
     public Text goldText;
     public Text timeText;
     public Text winText;
     public Text lifeText;
-    public Image loseImage;
+    public GameObject loseImage, winUI;
+    public GameObject[] tower;
 
-    int round;
+    int round, towerCount;
 
     SpawnEnemy spawnEnemy;
+    UserSetting userSetting;
     void Start()
     {
+        towerCount = 6;
         spawnEnemy = GameObject.Find("SpawnPosition").GetComponent<SpawnEnemy>();
-        gold = 500;
-        life = 20;
-        maximumRound = 20;
+        userSetting = GameObject.Find("UserSetting").GetComponent<UserSetting>();
+        for (int i = 0; i < towerCount; i++)
+        {
+            if (userSetting.Tower[i])
+                tower[i].SetActive(true);
+        }
+
     }
 
     void Update()
@@ -41,6 +48,9 @@ public class GameSetting : MonoBehaviour
             {
                 winText.text = "Win!";
                 //win UI
+                winUI.SetActive(true);
+                userSetting.Tower[getTower] = true;
+                userSetting.stageClear[stage] = true;
                 //-> click next button -> MainMenu
                 //-> get reward(materials, tower, etc)
             }
@@ -50,10 +60,11 @@ public class GameSetting : MonoBehaviour
     private void LateUpdate()
     {
         round = spawnEnemy.round;
-        /*if(life < 0)
-        { 
-        loseImage.SetActive(true);
-        }*/
+        if(life <= 0)
+        {
+            life = 0;
+            loseImage.SetActive(true);
+        }
     }
 
     void nameText(Text text, string str)

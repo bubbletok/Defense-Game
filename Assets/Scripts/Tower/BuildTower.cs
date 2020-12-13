@@ -15,6 +15,7 @@ public class BuildTower : MonoBehaviour
     Vector3Int position;
     Vector3Int[] positions;
 
+    SpriteRenderer spriteRenderer;
     GameSetting gameSetting;
     TowerSetting towerSetting;
     TowerInformation towerInformation;
@@ -38,6 +39,7 @@ public class BuildTower : MonoBehaviour
 
         gameSetting = GameObject.Find("SettingManager").GetComponent<GameSetting>();
         towerInformation = GameObject.Find("Mouse").GetComponent<TowerInformation>();
+        spriteRenderer = GameObject.Find("Mouse").GetComponent<SpriteRenderer>();
 
         towerSelected = false;
     }
@@ -75,6 +77,7 @@ public class BuildTower : MonoBehaviour
                         gameSetting.gold -= expense[buildNumber];
                         towerSetting.count = count[buildNumber];
                         towerSetting.selectNumber = buildNumber;
+                        spriteRenderer.sprite = null;
                         towerSelected = false;
                     }
                 }

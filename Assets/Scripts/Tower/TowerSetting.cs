@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class TowerSetting : MonoBehaviour
 {
-    public int count, selectNumber, upgradeGold;
+    public int count, selectNumber, upgradeGold, upgradeLevel;
     public float range, damage, attackSpeed;
+    public bool open;
     public Sprite towerImage;
     public GameObject towerRange;
-    public bool open;
 
     GameObject tempRange;
     TowerInformation towerInformation;
@@ -21,6 +21,8 @@ public class TowerSetting : MonoBehaviour
         tempRange = Instantiate(towerRange, transform.position, Quaternion.identity);
         tempRange.transform.localScale = new Vector3(range * 2, range * 2, 1);
         tempRange.SetActive(false);
+
+        upgradeLevel = 1;
 
         switch (selectNumber)
         {
